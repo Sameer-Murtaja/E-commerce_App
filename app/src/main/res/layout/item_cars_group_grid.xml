@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.unit_one.e_commerceapp.data.model.ProductResponse" />
+
+        <variable
+            name="listener"
+            type="com.unit_one.e_commerceapp.ui.groups.IGroupListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="12dp"
+        android:elevation="1dp"
+        android:onClick="@{(rootView) -> listener.onClickItem(rootView, item.id, item.image, item.title)}"
+        app:cardCornerRadius="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="fitCenter"
+                app:imageFromInternet="@{item.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                tools:srcCompat="@drawable/icon_mercedes" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextStyle.SemiBold.Space24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{item.title}"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img"
+                app:layout_constraintTop_toTopOf="@+id/img"
+                tools:text="Mercedes dskjfdks jf kdfj kdj  dkfjk d fkjdk fjdk j" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

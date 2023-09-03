@@ -1,0 +1,60 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EcommerceApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimaryDark">#00000000</item>
+        <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="TextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/cairo_regular</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+
+    <style name="TextStyle.Bold" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_size18</item>
+        <item name="android:fontFamily">@font/cairo_bold</item>
+    </style>
+
+    <style name="TextStyle.SemiBold.Space24" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_size24</item>
+        <item name="android:fontFamily">@font/cairo_semibold</item>
+    </style>
+
+    <style name="TextStyle.SemiBold.Space18" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_size18</item>
+        <item name="android:fontFamily">@font/cairo_semibold</item>
+    </style>
+
+
+    <style name="TextStyle.Space13" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_size13</item>
+    </style>
+
+    <style name="TextStyle.Space20" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_size20</item>
+    </style>
+
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">8dp</item>
+    </style>
+
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

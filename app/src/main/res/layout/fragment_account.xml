@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.unit_one.e_commerceapp.ui.account.AccountViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:title="@{viewModel.title}" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_account"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewModel.onClickImageAccount()}"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_house"
+            app:imageFromInternet="@{viewModel.user.toData().image}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp"
+            app:visibleIfTrue="@{!viewModel.isCropping()}" />
+
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextStyle.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.user.toData().username}"
+            app:layout_constraintStart_toEndOf="@+id/image_account"
+            app:layout_constraintTop_toTopOf="@+id/image_account"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.user.toData().email}"
+            app:layout_constraintStart_toEndOf="@+id/image_account"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/textView43"
+            style="@style/TextStyle.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/address"
+            app:layout_constraintStart_toStartOf="@+id/image_account"
+            app:layout_constraintTop_toBottomOf="@+id/image_account" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.user.toData().address}"
+            app:layout_constraintStart_toStartOf="@+id/textView43"
+            app:layout_constraintTop_toBottomOf="@+id/textView43"
+            tools:text="address" />
+
+        <TextView
+            android:id="@+id/textView42"
+            style="@style/TextStyle.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/phone"
+            app:layout_constraintStart_toStartOf="@+id/textView43"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.user.toData().phone}"
+            app:layout_constraintStart_toStartOf="@+id/textView42"
+            app:layout_constraintTop_toBottomOf="@+id/textView42"
+            tools:text="phone" />
+
+
+        <Button
+            android:id="@+id/buttonCreateNewAccount2"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> viewModel.onClickButtonSignOut()}"
+            android:text="Sign Out"
+            android:textColor="@color/color_warning"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSave"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/save"
+            android:onClick="@{() -> viewModel.onClickButtonSave()}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:backgroundTint="@color/color_primary"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:visibleIfTrue="@{viewModel.isCropping()}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/cancel"
+            android:onClick="@{() -> viewModel.onClickButtonCancel()}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:backgroundTint="@color/color_grey"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonSave"
+            app:visibleIfTrue="@{viewModel.isCropping()}" />
+
+        <View
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#878787"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar"
+            app:visibleIfTrue="@{viewModel.isCropping()}" />
+
+        <com.canhub.cropper.CropImageView
+            android:id="@+id/image_crop_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="64dp"
+            android:background="@color/black"
+            android:visibility="gone"
+            app:cropAspectRatioX="1"
+            app:cropAspectRatioY="1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleIfTrue="@{viewModel.isCropping()}" />
+
+        <include
+            android:id="@+id/loading_and_error"
+            layout="@layout/loading_and_error"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar"
+            bind:state="@{viewModel.user}" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            android:visibility="gone"
+            app:showWhenLoading="@{viewModel.updatingUserState}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

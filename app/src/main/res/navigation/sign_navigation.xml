@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_navigation"
+    app:startDestination="@id/signInFragment">
+    <fragment
+        android:id="@+id/signInFragment"
+        tools:layout="@layout/fragment_sign_in"
+        android:name="com.unit_one.e_commerceapp.ui.sign_in.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_mobileSignUpFragment"
+            app:destination="@id/mobileSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mobileSignUpFragment"
+        tools:layout="@layout/fragment_mobile_sign_up"
+        android:name="com.unit_one.e_commerceapp.ui.sign_up_mobile.MobileSignUpFragment"
+        android:label="MobileSignUpFragment" >
+        <action
+            android:id="@+id/action_mobileSignUpFragment_to_mobileVerifyCodeFragment"
+            app:destination="@id/mobileVerifyCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        tools:layout="@layout/fragment_sign_up"
+        android:name="com.unit_one.e_commerceapp.ui.sign_up.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mobileVerifyCodeFragment"
+        tools:layout="@layout/fragment_mobile_verify_code"
+        android:name="com.unit_one.e_commerceapp.ui.sign_up_mobile.MobileVerifyCodeFragment"
+        android:label="MobileVerifyCodeFragment" >
+        <argument
+            android:name="storedVerificationId"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+    </fragment>
+</navigation>

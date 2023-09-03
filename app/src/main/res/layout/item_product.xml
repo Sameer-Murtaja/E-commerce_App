@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.unit_one.e_commerceapp.data.model.ProductResponse" />
+        <variable
+            name="listener"
+            type="com.unit_one.e_commerceapp.ui.home.IProductListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:elevation="1dp"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="@{(rootView) -> listener.onClickItem(rootView, item.id, item.image, item.title)}"
+        app:cardCornerRadius="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/cornerImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon_new_edge" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/TextStyle.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="4dp"
+                android:rotation="-45"
+                android:text="@string/new_product"
+                android:textColor="@color/white"
+                android:textSize="7sp"
+                app:layout_constraintStart_toStartOf="@+id/cornerImg"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="fitCenter"
+                app:imageFromInternet="@{item.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/materialDivider2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                app:srcCompat="@drawable/wheel" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider2"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextStyle.SemiBold.Space24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{item.title}"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/materialDivider2"
+                app:layout_constraintTop_toTopOf="@+id/materialDivider2"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle"
+                android:textSize="12sp"
+                android:text="@{item.category}"
+                tools:text="category"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:srcCompat="@drawable/icon_brand_pirelli" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/TextStyle.SemiBold.Space24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(item.price) + '$'}"
+                tools:text="245$"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/materialDivider2"
+                app:layout_constraintStart_toEndOf="@+id/materialDivider2" />
+
+            <View
+                android:id="@+id/imageButton2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/circular_button"
+                app:tint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnBasket"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="5.5dp"
+                app:tint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+                app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+                app:layout_constraintStart_toStartOf="@+id/imageButton2"
+                app:layout_constraintTop_toTopOf="@+id/imageButton2"
+                app:srcCompat="@drawable/icon_basket" />
+
+            <View
+                android:id="@+id/imageButton3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/circular_button"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton2" />
+
+
+            <ImageView
+                android:id="@+id/button_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:tint="@color/black"
+                android:padding="4dp"
+                app:setFavoriteIcon="@{item.favorite}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+                app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+                app:layout_constraintStart_toStartOf="@+id/imageButton3"
+                app:layout_constraintTop_toTopOf="@+id/imageButton3"
+                app:srcCompat="@drawable/icon_heart" />
+<!--                android:onClick="@{() -> listener.updateProductIsFavorite(item)}"-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

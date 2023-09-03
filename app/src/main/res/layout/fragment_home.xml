@@ -48,6 +48,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6"
             app:startIconDrawable="@drawable/icon_search"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_email"
+            app:endIconTint="@android:color/transparent"
             app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -71,7 +74,6 @@
             android:id="@+id/buttonQrScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:backgroundTint="#00000000"
             android:contentDescription="@string/qr_scan"

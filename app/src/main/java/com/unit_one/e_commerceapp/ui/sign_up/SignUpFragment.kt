@@ -14,11 +14,11 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
 ) {
 
     override fun addCallbacks() {
-        viewModel.signUpState.observe(this) { signInState ->
-            if (signInState is State.Success) {
+        viewModel.signUpState.observe(this) { signUpState ->
+            if (signUpState is State.Success) {
                 startMainActivity()
-            } else if (signInState is State.Error) {
-                showErrorInputsDialog(signInState.message)
+            } else if (signUpState is State.Error) {
+                showErrorInputsDialog(signUpState.message)
             }
         }
     }

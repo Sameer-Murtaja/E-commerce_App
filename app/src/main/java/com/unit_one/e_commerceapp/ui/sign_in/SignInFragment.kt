@@ -21,7 +21,6 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>(
     R.layout.fragment_sign_in,
     SignInViewModel::class.java
 ) {
-    private val auth = Firebase.auth
     lateinit var googleSignInClient: GoogleSignInClient
     val GOOGLE_SIGN_IN = 400
 
@@ -65,13 +64,16 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>(
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        log("onActivity REsult")
         if (requestCode == GOOGLE_SIGN_IN) {
+        log("requestCode = GOOGLE_SIGN_IN")
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
                 account.idToken?.let { viewModel.signInGoogleUser(it) }
             } catch (e: ApiException) {
-                log(e.message)
+                log("catch Error: ${e.message}")
             }
         }
     }

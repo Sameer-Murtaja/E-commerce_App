@@ -24,6 +24,9 @@ class ChatFirebase {
     private val items = MutableStateFlow<State<List<Message>?>>(State.Loading)
     private val attachments = mutableSetOf<Uri>()
 
+    private val uploadState = MutableStateFlow<State<Boolean>>(State.Loading)
+
+
 
     fun getProductCommentsChat(productId: String) {
         ref = db.getReference("chat").child(productId)
@@ -74,7 +77,17 @@ class ChatFirebase {
         return items
     }
 
-    fun sendMessageAndAttachments(hashMap: HashMap<String, Any?>) {
+
+    fun sendMessage(hashMap: HashMap<String,Any?>):
+            MutableStateFlow<State<Boolean>> {
+        GlobalScope.launch {
+            uploadState.emit(State.Loading)
+        }
+        uploadMessageAndAttachments(hashMap)
+        return uploadState
+    }
+
+    fun uploadMessageAndAttachments(hashMap: HashMap<String, Any?>) {
         val attachments = hashMap["attachments"] as List<String>?
         val attachmentsUri = attachments?.map { Uri.parse(it) }
         uploadAttachments(attachmentsUri, hashMap)
@@ -87,7 +100,7 @@ class ChatFirebase {
         val fileRef = storageRef.child("chat").child("images")
 
         if (attachmentsUris.isNullOrEmpty()) {
-            sendMessage(hashMap)
+            uploadMessage(hashMap)
             return
         }
 
@@ -102,18 +115,24 @@ class ChatFirebase {
 
                     if (attachmentsUris.size == attachments.size) {
                         hashMap["attachments"] = attachments.toList().map { uri -> uri.toString() }
-                        sendMessage(hashMap)
+                        uploadMessage(hashMap)
                     }
                 }
             }.addOnFailureListener {
                 Log.e("ChatRepository", "uploadAttachments failed: ${it.message}")
+                GlobalScope.launch {
+                    uploadState.emit(State.Error(it.message.toString()))
+                }
             }
         }
     }
 
-    private fun sendMessage(hashMap: HashMap<String, Any?>) {
+    private fun uploadMessage(hashMap: HashMap<String, Any?>) {
         Log.e("Chat", "sendMessage: $hashMap")
         ref.child(count.toString()).setValue(hashMap)
+        GlobalScope.launch {
+            uploadState.emit(State.Success(true))
+        }
     }
 
 

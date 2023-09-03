@@ -39,11 +39,5 @@
         tools:layout="@layout/fragment_mobile_verify_code"
         android:name="com.unit_one.e_commerceapp.ui.sign_up_mobile.MobileVerifyCodeFragment"
         android:label="MobileVerifyCodeFragment" >
-        <argument
-            android:name="storedVerificationId"
-            app:argType="string" />
-        <argument
-            android:name="phoneNumber"
-            app:argType="string" />
     </fragment>
 </navigation>

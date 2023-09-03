@@ -11,4 +11,6 @@ class UserRepository {
     fun logInUser(email: String, password: String) = userFirebase.logInUser(email,password)
 
     fun getUserFromFirebase() = userFirebase.getUserFromFirebase()
+
+    fun addUserToFirebase(user: User) = userFirebase.addUserToFirebase(user)
 }

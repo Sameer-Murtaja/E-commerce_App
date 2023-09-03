@@ -60,6 +60,7 @@ class SignInViewModel : BaseViewModel() {
 
 
     fun signInGoogleUser(idToken: String) {
+        _signInState.postValue(State.Loading)
         val credential = GoogleAuthProvider.getCredential(idToken, null)
 
         auth.signInWithCredential(credential)
@@ -67,10 +68,20 @@ class SignInViewModel : BaseViewModel() {
                 log("sign in success? ${it.isSuccessful}")
                 if (it.isSuccessful) {
                     val user = auth.currentUser
-                    val newUser = User(user?.uid, user?.displayName, user?.email, null, user?.phoneNumber, null, null)
-                    userRepository.addUser(newUser)
-                    log(user?.uid)
-                    log(user?.displayName)
+                    val newUser = User(
+                        user?.uid,
+                        user?.displayName,
+                        user?.email,
+                        null,
+                        user?.phoneNumber,
+                        null,
+                        null
+                    )
+                    viewModelScope.launch {
+                        userRepository.addUserToFirebase(newUser).collect { state ->
+                            _signInState.postValue(state)
+                        }
+                    }
                 }
             }
     }

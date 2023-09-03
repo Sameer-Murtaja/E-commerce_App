@@ -40,7 +40,8 @@ class UserFirebase {
             }
     }
 
-    private fun addUserToFirebase(user: User) {
+    fun addUserToFirebase(user: User): MutableStateFlow<State<Boolean>> {
+
         val id = auth.currentUser!!.uid
         user.id = id
         User.instance = user
@@ -59,6 +60,7 @@ class UserFirebase {
                     signUpState.emit(State.Error(it.message.toString()))
                 }
             }
+        return signUpState
     }
 
 

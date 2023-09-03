@@ -8,7 +8,7 @@ class ChatRepository {
 
     fun getItems() = chatFirebaseRT.getItems()
 
-    fun sendMessage(hashMap: HashMap<String, Any?>) = chatFirebaseRT.sendMessageAndAttachments(hashMap)
+    fun sendMessage(hashMap: HashMap<String, Any?>) = chatFirebaseRT.sendMessage(hashMap)
 
     fun getProductCommentsChat(productId: String){
         chatFirebaseRT.getProductCommentsChat(productId)

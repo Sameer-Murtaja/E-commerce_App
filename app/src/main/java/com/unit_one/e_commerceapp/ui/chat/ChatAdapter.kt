@@ -51,7 +51,7 @@ class ChatAdapter(items: List<Message>?) :
 
     override fun getItemViewType(position: Int): Int {
 
-        return if (items?.get(position)?.name == User.instance?.username) {
+        return if (items?.get(position)?.name == User.instance?.username.toString()) {
             RIGHT
         } else {
             LEFT

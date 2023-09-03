@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -13,8 +14,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.unit_one.e_commerceapp.BR
 import com.unit_one.e_commerceapp.data.model.State
+import com.unit_one.e_commerceapp.ui.MainActivity
 
 abstract class BaseFragment<DB : ViewDataBinding, VM : ViewModel>(
     @LayoutRes private val layoutId: Int,
@@ -41,14 +44,29 @@ abstract class BaseFragment<DB : ViewDataBinding, VM : ViewModel>(
             setVariable(BR.viewModel, viewModel)
             lifecycleOwner = viewLifecycleOwner
         }
+        customSetup()
         setup()
         addCallbacks()
         return binding.root
     }
 
-    open fun setup(){}
+    private fun customSetup() {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            onClickBackButton()
+        }
 
-    open fun addCallbacks(){}
+    }
+
+    private fun onClickBackButton() {
+        findNavController().navigateUp()
+        val activity = requireActivity()
+        if (activity is MainActivity)
+            activity.shouldBottomNavigationDisappear(false)
+    }
+
+    open fun setup() {}
+
+    open fun addCallbacks() {}
 
     protected fun log(value: Any?) {
         Log.e(LOG_TAG, value.toString())

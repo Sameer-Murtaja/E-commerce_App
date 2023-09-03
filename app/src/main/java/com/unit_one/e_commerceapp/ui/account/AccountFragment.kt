@@ -56,6 +56,7 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>(
         viewModel.buttonSignOutClicked.observe(this) {
             if (it) {
                 startActivity(Intent(requireActivity(), SignActivity::class.java))
+                requireActivity().finish()
             }
         }
 

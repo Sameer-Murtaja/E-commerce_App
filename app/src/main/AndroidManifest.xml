@@ -22,14 +22,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcommerceApp"
         tools:targetApi="31" >
-        <activity
-            android:name=".ui.sign_up.SignUpFragment"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -39,20 +31,7 @@
             android:name=".ui.GoogleMaps.GoogleMapsActivity"
             android:exported="false"
             android:label="@string/title_activity_google_maps" />
-        <activity
-            android:name=".ui.sign_up_mobile.MobileVerifyCodeFragment"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.sign_up_mobile.MobileSignUpFragment"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" >
@@ -62,7 +41,7 @@
         </activity>
         <activity
             android:name=".ui.SignActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

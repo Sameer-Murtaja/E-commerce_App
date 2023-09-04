@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">e_commerceapp</string>
+    <string name="app_name">E-Commerce</string>
     <string name="select_your_language">Select Your Language</string>
     <string name="done">Done</string>
     <string name="arabic">العربية</string>
@@ -8,7 +8,7 @@
     <string name="sign_in_to_your_account_on_wastef">Sign In to your account on wastef</string>
     <string name="username_or_mobile">Username Or Mobile</string>
     <string name="password">Password</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="a_short_title_is_best">A Short Title Is Best</string>
     <string name="a_message_should_be_a_short_complete_sentence">A message should be a short, complete sentence.</string>
     <string name="sign_in">SIGN IN</string>

@@ -9,7 +9,7 @@ import com.unit_one.e_commerceapp.databinding.ItemMainGroupGridBinding
 import com.unit_one.e_commerceapp.ui.base.BaseAdapter
 import com.unit_one.e_commerceapp.ui.base.IBaseInteractionListener
 
-class MainGroupAdapter(
+class ClothAdapter(
     list: List<ProductResponse>,
     listener: IBaseInteractionListener?,
     private val isGroupCard: Boolean

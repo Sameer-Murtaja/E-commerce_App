@@ -7,8 +7,8 @@ import com.unit_one.e_commerceapp.R
 import com.unit_one.e_commerceapp.databinding.FragmentGroupsFullListBinding
 import com.unit_one.e_commerceapp.ui.MainActivity
 import com.unit_one.e_commerceapp.ui.base.BaseFragment
-import com.unit_one.e_commerceapp.ui.home.adapters.CarsGroupAdapter
-import com.unit_one.e_commerceapp.ui.home.adapters.MainGroupAdapter
+import com.unit_one.e_commerceapp.ui.home.adapters.ElectronicAdapter
+import com.unit_one.e_commerceapp.ui.home.adapters.ClothAdapter
 import com.unit_one.e_commerceapp.util.getClothes
 import com.unit_one.e_commerceapp.util.getElectronics
 import com.unit_one.e_commerceapp.util.getJewelery
@@ -32,21 +32,21 @@ class GroupsFullListFragment :
                 GroupType.CLOTHES -> {
                     val clothesList = getClothes(products.toData())
                     binding.recyclerViewMainGroup.adapter =
-                        MainGroupAdapter(clothesList, viewModel, true)
+                        ClothAdapter(clothesList, viewModel, true)
                 }
                 GroupType.ELECTRONIC -> {
                     val electronicsList = getElectronics(products.toData())
                     binding.recyclerViewMainGroup.layoutManager =
                         GridLayoutManager(requireContext(), 2)
                     binding.recyclerViewMainGroup.adapter =
-                        CarsGroupAdapter(electronicsList, viewModel, true)
+                        ElectronicAdapter(electronicsList, viewModel, true)
                 }
                 GroupType.JEWELERY -> {
                     val jeweleryList = getJewelery(products.toData())
                     binding.recyclerViewMainGroup.layoutManager =
                         GridLayoutManager(requireContext(), 2)
                     binding.recyclerViewMainGroup.adapter =
-                        CarsGroupAdapter(jeweleryList, viewModel, true)
+                        ElectronicAdapter(jeweleryList, viewModel, true)
                 }
             }
         }

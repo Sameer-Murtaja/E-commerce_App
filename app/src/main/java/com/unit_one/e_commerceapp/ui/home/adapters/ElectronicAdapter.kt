@@ -9,7 +9,7 @@ import com.unit_one.e_commerceapp.databinding.ItemCarsGroupGridBinding
 import com.unit_one.e_commerceapp.ui.base.BaseAdapter
 import com.unit_one.e_commerceapp.ui.base.IBaseInteractionListener
 
-class CarsGroupAdapter(
+class ElectronicAdapter(
     list: List<ProductResponse>,
     listener: IBaseInteractionListener?,
     private val isGroupCard: Boolean

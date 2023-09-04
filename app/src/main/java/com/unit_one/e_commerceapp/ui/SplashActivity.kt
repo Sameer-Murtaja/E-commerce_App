@@ -12,7 +12,6 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.unit_one.e_commerceapp.R
 import com.unit_one.e_commerceapp.data.repository.UserRepository
 import com.unit_one.e_commerceapp.databinding.ActivitySplashBinding
-import com.unit_one.e_commerceapp.ui.GoogleMaps.GoogleMapsActivity
 import com.unit_one.e_commerceapp.ui.base.BaseActivity
 import com.unit_one.e_commerceapp.ui.base.BaseViewModel
 import com.unit_one.e_commerceapp.ui.select_language.SelectLanguageActivity
@@ -30,7 +29,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, BaseViewModel>(
         animateLogo()
 
         setNextActivity()
-//        myIntent = Intent(this, GoogleMapsActivity::class.java)
 
         switchActivityAfterDelay()
     }

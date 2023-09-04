@@ -46,21 +46,21 @@ class HomeFragmentAdapter(
                 when (position) {
                     0 -> {
                         rvGroup.adapter =
-                            MainGroupAdapter(clothesList, listener, false)
+                            ClothAdapter(clothesList, listener, false)
                         groupType = GroupType.CLOTHES
                     }
                     1 -> {
                         rvGroup.adapter =
-                            CarsGroupAdapter(electronicsList, listener, false)
+                            ElectronicAdapter(electronicsList, listener, false)
                         groupType = GroupType.ELECTRONIC
                     }
                     2 -> {
-                        rvGroup.adapter = CarsGroupAdapter(jeweleryList, listener, false)
+                        rvGroup.adapter = ElectronicAdapter(jeweleryList, listener, false)
                         groupType = GroupType.JEWELERY
                     }
                     3 -> {
                         val newProducts = products.toData()?.reversed() ?: emptyList()
-                        val adapter = ProductAdapter(newProducts, listener)
+                        val adapter = NewProductAdapter(newProducts, listener)
                         rvGroup.adapter = adapter
                         rvGroup.clipToPadding = true
                         val horizontalLayoutManager = LinearLayoutManager(
@@ -73,7 +73,6 @@ class HomeFragmentAdapter(
 
                     }
                 }
-
                 val title = viewModel.getTitles()[position]
                 item = HomeGroup(title, groupType)
             }

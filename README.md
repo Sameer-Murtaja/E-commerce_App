@@ -1,7 +1,7 @@
 # E-Commerce App called WASEF AMER
 ![logo](https://github.com/Sameer-Murtaja/E-commerce_App/assets/126585843/c9d451c1-b197-45b7-8893-d18d76ee5f2a)
 
-**Sign-in and Sign-up using Firebase Authentication** dd
+**Sign-in and Sign-up using Firebase Authentication**
 
 ![WhatsApp Image 2023-09-04 at 4 55 42 PM](https://github.com/Sameer-Murtaja/E-commerce_App/assets/126585843/ece56159-11e1-4ec7-9157-ea768b7c94fa)
 

@@ -22,7 +22,7 @@
 -----------------------------------------------------------------------------------------------------------
 **View Product Details and comments**
 
-![WhatsApp Image 2023-09-04 at 5 34 27 PM](https://github.com/Sameer-Murtaja/E-commerce_App/assets/126585843/c98e5b05-1871-4db3-8bff-e8f0831f4403)
+![image](https://github.com/user-attachments/assets/e507a3b7-d5a7-4fda-a4c0-67aae14779e2)
 
 -----------------------------------------------------------------------------------------------------------
 **View your Account details**

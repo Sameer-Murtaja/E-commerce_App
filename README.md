@@ -30,4 +30,4 @@
 
 ![WhatsApp Image 2023-09-04 at 4 57 40 PM](https://github.com/Sameer-Murtaja/E-commerce_App/assets/126585843/a01fd43e-d2d2-4fd2-981a-7a6ca9e05172)
 
-![image](https://github.com/user-attachments/assets/8cf922bc-49b0-41c9-b500-aeff8ddda572)
+![image_2024-10-21_183749503](https://github.com/user-attachments/assets/d69fe957-c4cc-40bf-b9d5-69cafd71d2fa)

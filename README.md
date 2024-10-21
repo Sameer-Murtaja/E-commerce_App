@@ -22,7 +22,8 @@
 -----------------------------------------------------------------------------------------------------------
 **View Product Details and comments**
 
-![image](https://github.com/user-attachments/assets/e507a3b7-d5a7-4fda-a4c0-67aae14779e2)
+![image_2024-10-21_175812166](https://github.com/user-attachments/assets/2b97e8e3-5f5c-4c3a-8745-d55cb3fb0eec)
+
 
 -----------------------------------------------------------------------------------------------------------
 **View your Account details**

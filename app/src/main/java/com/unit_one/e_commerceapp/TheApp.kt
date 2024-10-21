@@ -25,7 +25,7 @@ class TheApp : Application() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID, "flashlight Service Channel",
+                CHANNEL_ID, "Service Channel",
                 NotificationManager.IMPORTANCE_HIGH
             )
             val audioAttributes = AudioAttributes.Builder()

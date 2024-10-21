@@ -12,83 +12,71 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_height="wrap_content">
+        android:backgroundTint="@color/color_tertiary"
+        android:background="@drawable/message_background">
 
-        <androidx.cardview.widget.CardView
+
+        <TextView
+            android:id="@+id/textViewName"
+            style="@style/TextStyle.Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_grey"
-            android:elevation="1dp"
-            app:cardCornerRadius="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{item.name}"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textViewDate"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{item.date}"
+            android:textColor="@color/white"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewName"
+            tools:text="date Time" />
 
-                <TextView
-                    android:id="@+id/textViewName"
-                    style="@style/TextStyle.Bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@{item.name}"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Name" />
+        <TextView
+            android:id="@+id/textViewMessage"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="8dp"
+            android:maxWidth="290dp"
+            android:text="@{item.message}"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName"
+            app:visibilityGoneIfNull="@{item.message}"
+            tools:text="@string/message" />
 
-                <TextView
-                    android:id="@+id/textViewDate"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="@{item.date}"
-                    android:textColor="@color/white"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textViewName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textViewName"
-                    tools:text="date Time" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAttachments"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            app:itemsCountForMaxSpan="@{item.attachments.size()}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMessage"
+            app:maxSpan="@{2}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_attachment_image"
+            tools:spanCount="2" />
 
-                <TextView
-                    android:id="@+id/textViewMessage"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:maxWidth="290dp"
-                    android:text="@{item.message}"
-                    app:visibilityGoneIfNull="@{item.message}"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewName"
-                    tools:text="@string/message" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvAttachments"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewMessage"
-                    app:itemsCountForMaxSpan="@{item.attachments.size()}"
-                    app:maxSpan="@{2}"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_attachment_image"
-                    tools:spanCount="2" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

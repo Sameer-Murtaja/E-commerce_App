@@ -43,7 +43,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChat"
             android:layout_width="0dp"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="500dp"
             android:layout_marginHorizontal="16dp"
             app:items="@{viewModel.items.toData()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

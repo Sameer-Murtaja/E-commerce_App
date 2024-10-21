@@ -26,7 +26,8 @@
 
 
 -----------------------------------------------------------------------------------------------------------
-**View your Account details**
+**View your Account details and update image**
 
 ![WhatsApp Image 2023-09-04 at 4 57 40 PM](https://github.com/Sameer-Murtaja/E-commerce_App/assets/126585843/a01fd43e-d2d2-4fd2-981a-7a6ca9e05172)
 
+![image_2024-10-21_182720289](https://github.com/user-attachments/assets/d2674c74-94fd-4be7-8685-0b2cf675b94a)

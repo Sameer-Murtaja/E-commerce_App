@@ -14,31 +14,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editTextMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="4dp"
             android:ems="10"
             android:hint="@string/message"
             android:inputType="textPersonName"
-            android:text="@={viewModel.messageText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonSend"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
 
-        <Button
+            android:textColorHint="@color/color_text_tertiary"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:helperTextTextColor="@color/color_warning"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_input_message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.messageText}"
+                android:background="@drawable/card_background"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
             android:id="@+id/buttonSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             android:onClick="@{() -> viewModel.checkAndSend()}"
-            android:text="@string/send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonAttachments" />
+            android:src="@drawable/ic__send_"
+
+            app:layout_constraintBottom_toBottomOf="@+id/editTextMessage"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAttachments"
+            app:layout_constraintTop_toTopOf="@+id/editTextMessage" />
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChat"
@@ -48,7 +64,7 @@
             android:layout_marginHorizontal="16dp"
             app:items="@{viewModel.items.toData()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/buttonSend"
+            app:layout_constraintBottom_toTopOf="@+id/editTextMessage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -59,13 +75,13 @@
             android:id="@+id/buttonAttachments"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/color_primary"
+            android:layout_marginEnd="8dp"
+            app:tint="@color/color_primary"
+            android:backgroundTint="#00000000"
             app:layout_constraintBottom_toBottomOf="@+id/buttonSend"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/buttonSend"
-            app:srcCompat="@drawable/ic_attachment"
-            app:tint="@color/white" />
+            app:srcCompat="@drawable/ic_attachment"/>
 
 
         <include
